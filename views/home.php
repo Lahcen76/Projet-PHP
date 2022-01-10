@@ -1,6 +1,8 @@
 <?php
 
-echo 'hello';?>
+echo 'hello';
+echo 'hrello';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
