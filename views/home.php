@@ -133,15 +133,15 @@ require '../controllers/index-controller.php'; ?>
                 <!-- Modal -->
                 <div class="modal fade" id="article-<?= $article ?>" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content bg-dark">
+                        <div class="modal-content">
                             <div class="modal-header ">
-                                <h5 class="col text-white  text-center"></h5>
+                                <h5 class="col text-center"></h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
-                            <div class="modal-body text-light bg-dark">
+                            <div class="modal-body ">
                                 <p><?= $item->description ?></p>
-                                <div class="text-center p-1 p-y-1 py-lg-4 img1 bg-dark"><img src="" alt=""></img>
+                                <div class="text-center p-1 p-y-1 py-lg-4 img1"><img src="" alt=""></img>
                                 </div>
                             </div>
                             <div class="modal-footer">

@@ -15,6 +15,6 @@ exit();
 </head>
 
 <body>
-  <h1>RSS Viewer Sport</h1>
+
 </body>
 </html>
