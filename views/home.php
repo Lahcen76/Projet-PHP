@@ -49,7 +49,7 @@ require '../controllers/index-controller.php'; ?>
                                 data-bs-target="#exampleModal"><a class="navbar-brand"
                                     href="parameters.php">Paramètres</a>
                                 <i class="fas fa-user-cog"></i>
-                            </button>
+                                </form>
                         </li>
                         <li class="nav-item col-2">
                             <a class="nav-link active fs-4" aria-current="page" href="pages.php"><?= $_SESSION[

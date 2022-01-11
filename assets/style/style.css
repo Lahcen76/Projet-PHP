@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 footer {
     background-image: url("../img/footer.jpeg");
     background-repeat: no-repeat;
@@ -14,4 +15,10 @@ footer {
 .img {
     height: 350px;
     width: 100px;
+=======
+body, form, button, input, p, h1{
+    display: block;
+    text-align: center;
+    margin: auto;
+>>>>>>> 54f7feef2841a4b7230b846bc35f546327001452
 }
