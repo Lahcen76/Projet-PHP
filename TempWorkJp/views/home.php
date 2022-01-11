@@ -1,13 +1,6 @@
 <?php
-setcookie('myChoiceDesign', '', time() - 3600);
-setcookie('myChoiceNumberPerPage', '', time() - 3600);
-setcookie('mySubject1', '', time() - 3600);
-setcookie('mySubject2', '', time() - 3600);
-setcookie('mySubject3', '', time() - 3600);
-setcookie('mySubject4', '', time() - 3600);
-setcookie('mySubject5', '', time() - 3600);
-?>
 
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
