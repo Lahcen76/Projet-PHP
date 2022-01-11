@@ -1,6 +1,7 @@
 <?php
 
 require '../controllers/index-controller.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +19,7 @@ require '../controllers/index-controller.php'; ?>
     <!-- cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/style/style.css">
 
     <title>ProjetPHP</title>
 </head>
@@ -43,17 +44,27 @@ require '../controllers/index-controller.php'; ?>
                 </div>
                 <div class="offcanvas-body row">
                     <ul class="navbar-nav pe-3">
-                        <li class="nav-item col-2">
-                            <inpu type="button" class="nav-link active fs-4">FOOTBALL<a href=""></a>
-                            </inpu>
-                            <input type="checkbox" class="form-control" name="checkbox" id="">
+                        <li class="nav-item text-center col-6">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><a class="navbar-brand"
+                                    href="parameters.php">Paramètres</a>
+                                <i class="fas fa-user-cog"></i>
+                            </button>
                         </li>
                         <li class="nav-item col-2">
-                            <a class="nav-link active fs-4" href="#">Sujet2</a>
-
+                            <a class="nav-link active fs-4" aria-current="page" href="pages.php"><?= $_SESSION[
+                                'Param'
+                            ]['theme'][0] ?></a>
                         </li>
                         <li class="nav-item col-2">
-                            <a class="nav-link active fs-4" href="#">sujet3</a>
+                            <a class="nav-link active fs-4" href="pages.php"><?= $_SESSION[
+                                'Param'
+                            ]['theme'][1] ?></a>
+                        </li>
+                        <li class="nav-item col-2">
+                            <a class="nav-link active fs-4" href="pages.php"><?= $_SESSION[
+                                'Param'
+                            ]['theme'][2] ?></a>
                         </li>
                     </ul>
                 </div>
@@ -61,6 +72,7 @@ require '../controllers/index-controller.php'; ?>
         </div>
     </nav>
 
+    <!-- navbar fin -->
 
     <!-- carroussel -->
     <header class="container">
@@ -75,13 +87,13 @@ require '../controllers/index-controller.php'; ?>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../assets/img/meteo_nuit.jpeg.jpg" class="d-block w-100" alt="...">
+                    <img src="" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="../assets/img/pexels-roberto-nickson-2775196.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/img/soleil.jpeg.jpg" class="d-block w-100" alt="...">
+                    <img src="assets/img/soleil.jpeg.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -98,51 +110,66 @@ require '../controllers/index-controller.php'; ?>
     </header>
     <!-- fin carroussel -->
 
-    <!-- card home -->
 
-    <div class=" row justify-content-center g-0">
-        <div class="card mb-3 mt-5" style="">
-            <div class="row g-0 ">
-                <div class="col-md-2">
-                    <img src="../assets/img/soleil.jpeg.jpg" class="img-fluid" alt="...">
-                </div>
-                <div class="col-lg-8">
-                    <form action="POST">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <a type="submit" href="" value="Plus d'info" name="btn-submit"
-                                class=" btn btn-primary position-absolute bottom-0 end-0 m-3">Plus d'info</a>
+    <div class="d-flex row col-lg-6 justify-content-center m-0 p-0">
+        <?php foreach ($rss_load->channel->item as $item) {
+
+            $datetime = date_create($item->pubDate);
+            $date = date_format($datetime, 'd M Y, H\hi');
+            ?>
+
+        <!-- table article -->
+        <tr class="table-active">
+            <th scope="row">1
+            </th>
+            <td><?= $item->title . '<br>' ?></td>
+            <td><?= $date ?></td>
+            <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#article-<?= $article ?>">plus
+                    d'infos</button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="article-<?= $article ?>" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header ">
+                                <h5 class="col text-white  text-center"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-light bg-dark">
+                                <p><?= $item->description ?></p>
+                                <div class="text-center p-1 p-y-1 py-lg-4 img1 bg-dark"><img src="" alt=""></img>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">plus
+                                    d'infos<a href="<?= $item->link .
+                                        '' .
+                                        utf8_decode($item->title) .
+                                        '' ?>"></a></button>
+                            </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- card home fin -->
-    <div class=" row justify-content-center g-0">
-        <div class="card mb-3 mt-5" style="">
-            <div class="row g-0 ">
-                <div class="col-md-2">
-                    <img src="../assets/img/soleil.jpeg.jpg" class="img-fluid" alt="...">
-                </div>
-                <div class="col-lg-8">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                        <a type="submit" href="" value="Plus d'info" name="btn-submit"
-                            class=" btn btn-primary position-absolute bottom-0 end-0 m-3">Plus d'info</a>
                     </div>
                 </div>
-            </div>
-        </div>
+            </td>
+        </tr><?php $article++;
+        } ?>
     </div>
 
+    <!-- footer -->
+    <footer class="row justify-content-center container-fluid mt-4 border ">
+        <div class="fs-6 col-md-3">
+            <p>© 2022 Projet Final PHP</p>
+            <a class="textFooter" href="">Mentions Légales</a>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>
+
+</html>
