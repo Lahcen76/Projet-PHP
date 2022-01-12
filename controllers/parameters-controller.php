@@ -11,38 +11,38 @@ $flux = [
 ];
 if (!isset($_SESSION['Param'])) {
     $_SESSION['Param'] = [
-        'nbr' => 9,
+        'nbr' => [9],
         'flux' => [
             'https://rmcsport.bfmtv.com/football/',
             'https://rmcsport.bfmtv.com/tennis/',
             'https://rmcsport.bfmtv.com/basket/',
         ],
         'theme' => ['football', 'tennis', 'baskt-ball'],
+        'myDesign' => ['light','dark']
     ];
 }
 
 if (!empty($_POST)) {
     $lien = [];
     $sport = [];
-
-    var_dump($_POST);
-
+    $design = [];
+    
     foreach ($flux as $key => $value) {
         if (array_key_exists($key, $_POST)) {
-            var_dump($key);
             $lien[] = $_POST[$key];
             $sport[] = $key;
-            var_dump($lien);
-        }
+            $design[] = $_POST['myDesign'];
+            }
     }
 
     if (count($lien) != 3) {
         echo 'il faut 3 flux rss';
     } else {
-        $_SESSION['Param'] = [
+         $_SESSION['Param'] = [            
             'nbr' => $_POST['Article'],
             'flux' => $lien,
             'theme' => $sport,
+            'myDesign' => $design
         ];
         setcookie(
             'DA_COOCKIE',

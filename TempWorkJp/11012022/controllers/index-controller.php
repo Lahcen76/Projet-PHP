@@ -7,14 +7,16 @@ $article = 1;
 
 if (!isset($_SESSION['Param'])) {
     $_SESSION['Param'] = [
-        'nbr' => [9],
-        'flux' => [
-            'https://rmcsport.bfmtv.com/football/',
+        'design' => 'light',
+        'nbr' => 9,
+        'flux' => ['https://rmcsport.bfmtv.com/football/',
             'https://rmcsport.bfmtv.com/tennis/',
             'https://rmcsport.bfmtv.com/basket/',
+            'https://rmcsport.bfmtv.com/rugby/',
+            'https://rmcsport.bfmtv.com/cyclisme/',
+
         ],
-        'theme' => ['football', 'tennis', 'baskt_ball'],
-        'myDesign' => ['light']
+        'theme' => ['football', 'tennis', 'baskt_ball', 'rugby', 'cyclisme'],
     ];
 }
 ?>
