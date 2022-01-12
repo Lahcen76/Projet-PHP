@@ -16,13 +16,13 @@ require '../controllers/index-controller.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../assets/style/style.css">
+    <link rel="stylesheet" href="../assets/style/style<?= $_SESSION['Param']['myDesign'][0] ?>.css">
 
     <title>ProjetPHP</title>
 </head>
 
 <body>
-    <!-- navbar debut     bg-$_SESSION['Param']['myDesign'][0] "> -->
+    <!-- navbar debut    -->
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-<?= $_SESSION['Param']['myDesign'][0]  ?> bg-<?= $_SESSION['Param']['myDesign'][0] ?>">
         <div class="container-fluid">
@@ -89,7 +89,7 @@ require '../controllers/index-controller.php';
     </header>
     <!-- fin carroussel -->
 
-    <div class="d-flex row col-lg-6 justify-content-center m-0 p-0 bg-<?= $_SESSION['Param']['myDesign'][0] ?> ">
+    <div class="d-flex row col-lg-6 justify-content-center m-0 p-0 ">
         <?php foreach ($rss_load->channel->item as $item) {
 
             $datetime = date_create($item->pubDate);
