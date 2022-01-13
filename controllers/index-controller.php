@@ -10,6 +10,7 @@ $rss_link = 'https://rmcsport.bfmtv.com/rss/fil-sport';
 $rss_load = simplexml_load_file($rss_link);
 $article = 1;
 
+<<<<<<< HEAD
 // Récupère une chaîne encodée JSON et la convertit en une variable PHP.
 
 if (isset($_COOKIE['DA_COOCKIE'])) {
@@ -27,6 +28,11 @@ if (isset($_COOKIE['DA_COOCKIE'])) {
 if (!isset($_SESSION['KING'])) {
     $_SESSION['KING'] = [
         'nbr' => [6, 9, 12],
+=======
+if (!isset($_SESSION['Param'])) {
+    $_SESSION['Param'] = [
+        'nbr' => [9],
+>>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
         'flux' => [
             'https://rmcsport.bfmtv.com/rss/football/',
             'https://rmcsport.bfmtv.com/rss/tennis/',
@@ -34,6 +40,7 @@ if (!isset($_SESSION['KING'])) {
             'https://rmcsport.bfmtv.com/rss/rugby/',
             'https://rmcsport.bfmtv.com/rss/cyclisme/',
         ],
+<<<<<<< HEAD
         'theme' => ['football', 'tennis', 'basket_ball', 'Rugby', 'Cyclisme'],
         'myDesign' => ['light', 'dark']
     ];
@@ -63,3 +70,10 @@ for ($jp = 1; $jp <= $tempNbr; $jp++) {
 //    var_dump($xml3->channel->item[$i]->description);
    $array_xml[] = $xml3->channel->item[$jp];
  }
+=======
+        'theme' => ['football', 'tennis', 'baskt_ball'],
+        'myDesign' => ['light']
+    ];
+}
+?>
+>>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b

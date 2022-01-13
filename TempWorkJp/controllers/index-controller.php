@@ -1,15 +1,20 @@
 <?php
+<<<<<<< HEAD
 if (session_status() == PHP_SESSION_NONE) {
        session_start();
 // }else {
 //      setcookie('PHPSESSID','',3600 * 24 * 30, '/');
 //      setcookie('DA_COOCKIE', '', time() - 3600 * 24 * 30, '/');
 }
+=======
+session_start();
+>>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
 
 $rss_link = 'https://rmcsport.bfmtv.com/rss/fil-sport';
 $rss_load = simplexml_load_file($rss_link);
 $article = 1;
 
+<<<<<<< HEAD
 // Récupère une chaîne encodée JSON et la convertit en une variable PHP.
 
 if (isset($_COOKIE['DA_COOCKIE'])) {
@@ -63,3 +68,18 @@ for ($jp = 1; $jp <= $tempNbr; $jp++) {
 //    var_dump($xml3->channel->item[$i]->description);
    $array_xml[] = $xml3->channel->item[$jp];
  }
+=======
+if (!isset($_SESSION['Param'])) {
+    $_SESSION['Param'] = [
+        'nbr' => [9],
+        'flux' => [
+            'https://rmcsport.bfmtv.com/football/',
+            'https://rmcsport.bfmtv.com/tennis/',
+            'https://rmcsport.bfmtv.com/basket/',
+        ],
+        'theme' => ['football', 'tennis', 'baskt_ball'],
+        'myDesign' => ['light']
+    ];
+}
+?>
+>>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b

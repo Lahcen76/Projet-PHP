@@ -1,11 +1,10 @@
+<<<<<<< HEAD
 footer {
     background-image: url("../img/footer.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 10rem;
     padding: 4rem;
-<<<<<<< HEAD
-=======
     text-align: center;
     /* color: white; */
     font-size: 0.8rem;
@@ -16,22 +15,10 @@ footer {
 .img {
     height: 350px;
     width: 100px;
-}
+=======
 body, form, button, input, p, h1, div{
     display: block;
->>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
     text-align: center;
-    /* color: white; */
-    font-size: 0.8rem;
-    margin-top: 5rem;
-}
-
-
-.img {
-    height: 350px;
-    width: 100px;
-}
-
-.descModal>img {
-    display: none;
+    margin: auto;
+>>>>>>> 54f7feef2841a4b7230b846bc35f546327001452
 }

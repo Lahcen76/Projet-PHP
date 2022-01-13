@@ -14,8 +14,17 @@ footer {
 .img {
     height: 350px;
     width: 100px;
+<<<<<<< HEAD
 }
 
 .descModal>img {
     display: none;
+=======
+=======
+body, form, button, input, p, h1, div{
+    display: block;
+    text-align: center;
+    margin: auto;
+>>>>>>> 54f7feef2841a4b7230b846bc35f546327001452
+>>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
 }
