@@ -1,7 +1,7 @@
 <?php
 require_once '../controllers/parameters-controller.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -16,22 +16,10 @@ require_once '../controllers/parameters-controller.php'; ?>
     <div>
             <label for="myDesign">Design à afficher sur la page d'accueil :</label>
             <select class="form-select" aria-label="Default select example" name="myDesign">
-                <option value=light <?= $_SESSION['Param']['myDesign'] == "light"
+                <option value=light <?= $_SESSION['KING']['myDesign'] == "light"
                     ? 'selected'
                     : '' ?>>light</option>
-                <option value=dark <?= $_SESSION['Param']['myDesign'] == "dark"
-                    ? 'selected'
-                    : '' ?>>dark</option>
-            </select>
-        </div>
-        <div>
-            <label for="myDesign">Design à afficher sur la page d'accueil :</label>
-            <select class="form-select" aria-label="Default select example" name="myDesign">
-                <option value="light" <?= $_SESSION['KING']['myDesign'] ==
-                'light'
-                    ? 'selected'
-                    : '' ?>>light</option>
-                <option value="dark" <?= $_SESSION['KING']['myDesign'] == 'dark'
+                <option value=dark <?= $_SESSION['KING']['myDesign'] == "dark"
                     ? 'selected'
                     : '' ?>>dark</option>
             </select>
@@ -57,21 +45,11 @@ require_once '../controllers/parameters-controller.php'; ?>
                 <?php foreach ($flux as $key => $value): ?>
                 <div>
                     <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1"
-<<<<<<< HEAD
                         name="<?= $key ?>">
                     <!-- <?= in_array($key, $_SESSION['KING']['theme'])
                             ? 'checked'
                             : '' ?> -->
                     <label class="form-check-label" for="flexCheckDefault1"><?= $key ?></label>
-=======
-                    onClick="doAction()" name="<?= $key ?>" <?= in_array(
-    $key,
-    $_SESSION['Param']['theme']
-)
-    ? 'checked'
-    : '' ?>>
-                    <label class="form-check-label" for="flexCheckDefault1"><?= $key ?> </label>
->>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -81,7 +59,7 @@ require_once '../controllers/parameters-controller.php'; ?>
         function doAction() {
             var max = 3;
             var z = 0;
-            var checkboxes = document.getElementsByClassName("<?= $key ?>");
+            var checkboxes = document.getElementsByClassName("form-check-input");
             for (var i = 0; i < checkboxes.length; i++) {
                 if (checkboxes.item(i).checked == true) {
                     z++

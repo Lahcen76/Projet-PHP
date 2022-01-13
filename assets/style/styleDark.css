@@ -9,7 +9,9 @@ footer {
     font-size: 0.8rem;
     margin-top: 5rem;
 }
-
+.descModal>img {
+    display: none;
+}
 
 .img {
     height: 350px;

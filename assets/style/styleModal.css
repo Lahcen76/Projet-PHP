@@ -1,6 +1,9 @@
 #promptCompat{ 
     display: none; 
 } 
+.descModal>img {
+    display: none;
+}
 #promptCompat.no_dialog{ 
     box-shadow: 0 0 5px 2px red; 
     padding: 10px; 

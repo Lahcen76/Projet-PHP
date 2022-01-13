@@ -1,16 +1,15 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
        session_start();
-// }else {
-//      setcookie('PHPSESSID','',3600 * 24 * 30, '/');
-//      setcookie('DA_COOCKIE', '', time() - 3600 * 24 * 30, '/');
+//}else {
+//    var_dump($_COOKIE);
+//var_dump($_SERVER);
 }
 
 $rss_link = 'https://rmcsport.bfmtv.com/rss/fil-sport';
 $rss_load = simplexml_load_file($rss_link);
 $article = 1;
 
-<<<<<<< HEAD
 // Récupère une chaîne encodée JSON et la convertit en une variable PHP.
 
 if (isset($_COOKIE['DA_COOCKIE'])) {
@@ -21,6 +20,7 @@ if (isset($_COOKIE['DA_COOCKIE'])) {
         'theme' => $table_Cookie->theme,
         'myDesign' => $table_Cookie->myDesign
     ];
+    var_dump($_SESSION['KING']);
 }
 
 // stocker les flus rss dans tableau
@@ -28,28 +28,22 @@ if (isset($_COOKIE['DA_COOCKIE'])) {
 if (!isset($_SESSION['KING'])) {
     $_SESSION['KING'] = [
         'nbr' => [6, 9, 12],
-=======
-if (!isset($_SESSION['Param'])) {
-    $_SESSION['Param'] = [
-        'nbr' => [9],
->>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
         'flux' => [
-            'https://rmcsport.bfmtv.com/rss/football/',
-            'https://rmcsport.bfmtv.com/rss/tennis/',
-            'https://rmcsport.bfmtv.com/rss/basket/',
-            'https://rmcsport.bfmtv.com/rss/rugby/',
-            'https://rmcsport.bfmtv.com/rss/cyclisme/',
+            'football' => 'https://rmcsport.bfmtv.com/rss/football/',
+            'tennis' => 'https://rmcsport.bfmtv.com/rss/tennis/',
+            'basket_ball' => 'https://rmcsport.bfmtv.com/rss/basket/',
+            'Rugby' => 'https://rmcsport.bfmtv.com/rss/rugby/',
+            'Cyclisme' => 'https://rmcsport.bfmtv.com/rss/cyclisme/',
         ],
-<<<<<<< HEAD
-        'theme' => ['football', 'tennis', 'basket_ball', 'Rugby', 'Cyclisme'],
+        'theme' => ['football' => 'football', 'tennis' =>'tennis', 'basket_ball' =>'basket_ball', 'Rugby' =>'Rugby', 'Cyclisme' =>'Cyclisme'],
         'myDesign' => ['light', 'dark']
     ];
 }
 
 //  Convertit un fichier XML en objet
-$xml = simplexml_load_file($_SESSION['KING']['flux'][0]);
-$xml2 = simplexml_load_file($_SESSION['KING']['flux'][1]);
-$xml3 = simplexml_load_file($_SESSION['KING']['flux'][2]);
+$xml = simplexml_load_file($_SESSION['KING']['flux']['football']);
+$xml2 = simplexml_load_file($_SESSION['KING']['flux']['tennis']);
+$xml3 = simplexml_load_file($_SESSION['KING']['flux']['basket_ball']);
 
 $array_xml = [];
 $tempNbr = $_SESSION['KING']['nbr'][0]/3;
@@ -70,10 +64,3 @@ for ($jp = 1; $jp <= $tempNbr; $jp++) {
 //    var_dump($xml3->channel->item[$i]->description);
    $array_xml[] = $xml3->channel->item[$jp];
  }
-=======
-        'theme' => ['football', 'tennis', 'baskt_ball'],
-        'myDesign' => ['light']
-    ];
-}
-?>
->>>>>>> a5aabdcce68241ef4ead395806c8a46cd5c59c6b
