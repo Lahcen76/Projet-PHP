@@ -15,7 +15,10 @@ footer {
     height: 350px;
     width: 100px;
 }
-
-.descModal>img {
-    display: none;
+body, form, button, input, p, h1, div{
+    display: block;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    color: black;
 }

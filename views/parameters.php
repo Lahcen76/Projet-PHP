@@ -14,15 +14,27 @@ require_once '../controllers/parameters-controller.php'; ?>
 
     <form method="POST">
         <div>
+            <label for="myDesign">Design à afficher sur la page d'accueil :</label>
+            <select class="form-select" aria-label="Default select example" name="myDesign">
+                <option value="light" <?= $_SESSION['KING']['myDesign'] ==
+                'light'
+                    ? 'selected'
+                    : '' ?>>light</option>
+                <option value="dark" <?= $_SESSION['KING']['myDesign'] == 'dark'
+                    ? 'selected'
+                    : '' ?>>dark</option>
+            </select>
+        </div>
+        <div>
             <label for="nbr">Nombre d'articles affichés sur la page d'accueil :</label>
             <select class="form-select" aria-label="Default select example" name="Article">
-                <option value="6" <?= $_SESSION['Param']['nbr'] == 6
+                <option value="6" <?= $_SESSION['KING']['nbr'] == 6
                     ? 'selected'
                     : '' ?>>6</option>
-                <option value="9" <?= $_SESSION['Param']['nbr'] == 9
+                <option value="9" <?= $_SESSION['KING']['nbr'] == 9
                     ? 'selected'
                     : '' ?>>9</option>
-                <option value="12" <?= $_SESSION['Param']['nbr'] == 12
+                <option value="12" <?= $_SESSION['KING']['nbr'] == 12
                     ? 'selected'
                     : '' ?>>12</option>
 
@@ -34,13 +46,11 @@ require_once '../controllers/parameters-controller.php'; ?>
                 <?php foreach ($flux as $key => $value): ?>
                 <div>
                     <input class="form-check-input" type="checkbox" value="<?= $value ?>" id="flexCheckDefault1"
-                        name="<?= $key ?>" <?= in_array(
-    $key,
-    $_SESSION['Param']['theme']
-)
-    ? 'checked'
-    : '' ?>>
-                    <label class="form-check-label" for="flexCheckDefault1"><?= $key ?> </label>
+                        name="<?= $key ?>">
+                    <!-- <?= in_array($key, $_SESSION['KING']['theme'])
+                            ? 'checked'
+                            : '' ?> -->
+                    <label class="form-check-label" for="flexCheckDefault1"><?= $key ?></label>
                 </div>
                 <?php endforeach; ?>
             </div>
@@ -49,5 +59,6 @@ require_once '../controllers/parameters-controller.php'; ?>
     </form>
 
 </body>
+
 
 </html>
