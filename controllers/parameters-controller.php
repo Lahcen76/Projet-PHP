@@ -38,9 +38,7 @@ if (!empty($_POST)) {
         }
     }
 
-    // var_dump();
-    // count($lien) != 3)
-    if (empty($lien)) {
+    if (count($lien) != 3) {
         echo 'il faut 3 flux rss';
     } else {
         $_SESSION['KING'] = [

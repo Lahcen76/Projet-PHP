@@ -16,7 +16,11 @@ footer {
     height: 350px;
     width: 100px;
 }
+<<<<<<< HEAD
 body, form, button, input, p, h1, div, .form-select {
+=======
+body, form, button, input, p, h1, div{
+>>>>>>> d608ff06b89d971f6ef1bb28fd2e5e79bfaa0e5b
     display: block;
     text-align: center;
     margin: auto;

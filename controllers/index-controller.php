@@ -34,15 +34,15 @@ if (!isset($_SESSION['KING'])) {
 }
 
 //  Convertit un fichier XML en objet
-if (isset($_SESSION['KING']['theme'])) {
-    $str1 = strval($_SESSION['KING']['theme'][0]);
-    $str2 = strval($_SESSION['KING']['theme'][1]);
-    $str3 = strval($_SESSION['KING']['theme'][2]);
 
-    $xml = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str1);
-    $xml2 = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str2);
-    $xml3 = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str3);
-}
+$str1 = strval($_SESSION['KING']['theme'][0]);
+$str2 = strval($_SESSION['KING']['theme'][1]);
+$str3 = strval($_SESSION['KING']['theme'][2]);
+
+$xml = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str1);
+$xml2 = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str2);
+$xml3 = simplexml_load_file('https://rmcsport.bfmtv.com/rss/' . $str3);
+
 $array_xml = [];
 
 for ($i = 0; $i < $_SESSION['KING']['nbr'] / 3; $i++) {
