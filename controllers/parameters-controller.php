@@ -3,53 +3,60 @@
 session_start();
 
 $flux = [
-    'Football' => 'https://rmcsport.bfmtv.com/football/',
-    'Tennis' => 'https://rmcsport.bfmtv.com/tennis/',
-    'basktbal' => 'https://rmcsport.bfmtv.com/basket/',
-    'Rugby' => 'https://rmcsport.bfmtv.com/rugby/',
-    'Cyclisme' => 'https://rmcsport.bfmtv.com/cyclisme/',
+    'football' => 'https://rmcsport.bfmtv.com/football/',
+    'tennis' => 'https://rmcsport.bfmtv.com/tennis/',
+    'basket' => 'https://rmcsport.bfmtv.com/basket/',
+    'rugby' => 'https://rmcsport.bfmtv.com/rugby/',
+    'cyclisme' => 'https://rmcsport.bfmtv.com/cyclisme/',
 ];
-if (!isset($_SESSION['Param'])) {
-    $_SESSION['Param'] = [
-        'nbr' => 9,
+
+if (!isset($_SESSION['KING'])) {
+    $_SESSION['KING'] = [
+        'nbr' => [6, 9, 12],
         'flux' => [
             'https://rmcsport.bfmtv.com/football/',
             'https://rmcsport.bfmtv.com/tennis/',
             'https://rmcsport.bfmtv.com/basket/',
+            'https://rmcsport.bfmtv.com/rugby/',
+            'https://rmcsport.bfmtv.com/cyclisme/',
         ],
-        'theme' => ['football', 'tennis', 'baskt-ball'],
+        'theme' => ['football', 'tennis', 'basket', 'rugby', 'cyclisme'],
+        'myDesign' => ['light', 'dark'],
+        'myDesign' => ['light', 'dark'],
     ];
 }
 
 if (!empty($_POST)) {
     $lien = [];
     $sport = [];
-
-    var_dump($_POST);
-
+    $design = [];
     foreach ($flux as $key => $value) {
         if (array_key_exists($key, $_POST)) {
-            var_dump($key);
             $lien[] = $_POST[$key];
             $sport[] = $key;
-            var_dump($lien);
+            $design[] = $_POST['myDesign'];
         }
     }
 
-    if (count($lien) != 3) {
+    // var_dump();
+    // count($lien) != 3)
+    if (empty($lien)) {
         echo 'il faut 3 flux rss';
     } else {
-        $_SESSION['Param'] = [
+        $_SESSION['KING'] = [
             'nbr' => $_POST['Article'],
             'flux' => $lien,
             'theme' => $sport,
+            'myDesign' => $design,
         ];
+
         setcookie(
             'DA_COOCKIE',
-            json_encode($_SESSION['Param']),
+            json_encode($_SESSION['KING']),
             time() + 3600 * 24 * 30,
             '/'
         );
+
         header('Location: home.php');
         exit();
     }
