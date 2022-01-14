@@ -18,10 +18,6 @@ require '../controllers/index-controller.php'; ?>
     <!-- cdn -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
 
-    <!-- <link rel="stylesheet" href="../assets/style/style<?= $_SESSION[
-        'KING'
-    ]['myDesign'][0] ?>.css"> -->
-
     <link rel="stylesheet" href="../assets/style/style.css">
 
     <title>ProjetPHP</title>
@@ -69,9 +65,7 @@ require '../controllers/index-controller.php'; ?>
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <nav class="navbar navbar-dark navbar-<?= $_SESSION['KING'][
-            'myDesign'
-        ][0] ?> bg-primary fixed-bottom">
+        <nav class="navbar navbar-dark bg-primary fixed-bottom">
             <div class="container-fluid text-lowercase">
                 <a class="navbar-brand" href="pages.php"><?= $_SESSION['KING'][
                     'theme'
@@ -100,6 +94,8 @@ require '../controllers/index-controller.php'; ?>
                     <td class="align-middle"><a class="btn btn-primary" href="<?= $value->link ?>">Vers Lien</a>
                     </td>
                 </tr>
+
+
 
                 <div class="modal fade" id="guillaume-<?= $article ?>" tabindex="-1" aria-labelledby="modalLabel"
                     aria-hidden="true">
