@@ -1,17 +1,14 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-// }else {
-//   setcookie('DA_COOCKIE', '', time() - 3600 * 24 * 30, '/');
 }
-$flux = [
-    'Football' => 'https://rmcsport.bfmtv.com/football/',
-    'Tennis' => 'https://rmcsport.bfmtv.com/tennis/',
-    'basketbal' => 'https://rmcsport.bfmtv.com/basket/',
-    'Rugby' => 'https://rmcsport.bfmtv.com/rugby/',
-    'Cyclisme' => 'https://rmcsport.bfmtv.com/cyclisme/'
+ $flux = [
+     'Football' => 'https://rmcsport.bfmtv.com/football/',
+     'Tennis' => 'https://rmcsport.bfmtv.com/tennis/',
+     'basketbal' => 'https://rmcsport.bfmtv.com/basket/',
+     'Rugby' => 'https://rmcsport.bfmtv.com/rugby/',
+     'Cyclisme' => 'https://rmcsport.bfmtv.com/cyclisme/'
 ];
-
 if (!isset($_SESSION['KING'])) {
     $_SESSION['KING'] = [
         'nbr' => [6, 9, 12],
@@ -31,13 +28,14 @@ if (!empty($_POST)) {
     $lien = [];
     $sport = [];
     $design = [];
-
+    $i=0;
     foreach ($flux as $key => $value) {
         if (array_key_exists($key, $_POST)) {
-            $lien[] = [$key => $_POST[$key]];
-            $sport[] = [$key => $key];
+            $lien[] = [$i => $_POST[$key]];
+            $sport[] = [$i => [$key]];
             $design[] = $_POST['myDesign'];
-        }
+            $i++;
+           }
     }
 
     if (count($lien) != 3) {
@@ -49,7 +47,8 @@ if (!empty($_POST)) {
             'theme' => $sport,
             'myDesign' => $design,
         ];
-        setcookie('DA_COOCKIE',json_encode($_SESSION['KING']),time() + 3600 * 24 * 30);
+        setcookie('DA_COOCKIE',json_encode($_SESSION['KING']),time() + 3600 * 24 * 30,'/');
+        setcookie('chgtParams','Yes',time() + 3600 * 24 * 30,'/');
         header('Location: home.php');
         exit();
     }
